@@ -34,7 +34,9 @@ class FirstScreen extends React.Component{
           name="Alexandre Okita"
           message="Quero o carro para ganhar uma renda extra como motorista do Uber"
           detail="R$ 0,15km/h - 08h - 16/11"
-          button=""
+          buttonType="YesNoButton"
+          routineID="qualquer coisa"
+          locatorID="qualquer coisa tbm"
         />
         <div className="text">
           <h1>Aguardando Locadores</h1>

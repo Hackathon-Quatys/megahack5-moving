@@ -1,9 +1,20 @@
 import React from 'react';
+import YesNoButton from './YesNoButton'
 
 class PerfilModal extends React.Component{
 
     constructor(props) {
       super(props)
+    }
+
+    getButton() {
+        switch (this.props.buttonType) {
+            case "YesNoButton":
+                return <YesNoButton routineID={this.props.routineID} locatorID={this.props.locatorID}/>
+                break;
+            default:
+                break;
+        }
     }
   
     render() {
@@ -23,6 +34,9 @@ class PerfilModal extends React.Component{
             </div>
             <div className="detail">
                 <b>{this.props.detail}</b>
+            </div>
+            <div className="action">
+                {this.getButton()}
             </div>
         </div>
       )
