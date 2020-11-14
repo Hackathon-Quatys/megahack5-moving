@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import Geocode from "react-geocode";
 
 class SearchScreen extends React.Component {
 
