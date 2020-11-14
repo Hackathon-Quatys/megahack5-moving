@@ -14,7 +14,6 @@ class FirstScreen extends React.Component{
       routine: {},
       locator: {}
     }
-    this.changeProposal = this.changeProposal.bind(this);
   }
 
   async componentDidMount() {
@@ -40,22 +39,18 @@ class FirstScreen extends React.Component{
     })
   }
 
-  changeProposal() {
-    var proposal = "pending"
-    if (this.state.status === "open"){
-      proposal = "pending"
-      this.setState({statusMessage: "Aguardando Resposta da Proposta"})
-    } else if (this.state.status === "pending") {
-      proposal = "confirmed"
-      this.setState({statusMessage: "Locação Agendada"})
-    } else {
-      proposal = "open"
-      this.setState({statusMessage: "Aguardando Locadores"})
+  setStatusMessage() {
+    console.log("ESTADO", this.state)
+    switch (this.state.status) {
+      case "open":
+        return "Aguardando Locadores"
+      case "pending":
+        return "Aguardando Resposta da Proposta"
+      case "confirmed":
+        return "Locação Agendada"
+      default:
+        return "no status found"
     }
-    this.setState({
-      status: proposal
-    })
-    console.log(this.state.status)
   }
 
   buildDetail() {
@@ -107,10 +102,9 @@ class FirstScreen extends React.Component{
   render() {
     return (
       <div className="waiting-screen">
-        <button onClick={this.changeProposal}>Change Proposal</button>
         {this.renderModal()}
         <div className="text">
-          <h1>{this.state.statusMessage}</h1>
+          <h2> {this.setStatusMessage()} </h2>
         </div>
       </div>
     )

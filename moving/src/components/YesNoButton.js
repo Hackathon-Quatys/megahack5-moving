@@ -1,4 +1,6 @@
 import React from 'react';
+import db from '../FirestoreConnection'
+
 
 class YesNoButton extends React.Component{
   
@@ -8,17 +10,22 @@ class YesNoButton extends React.Component{
         this.noButton = this.noButton.bind(this);
     }
 
-    yesButton() {
-        //update routine status to closed
-        console.log(this.props.routineID)      
+    async yesButton() {
+        //update routine status to confirmed
+        const routinesRef = await db.collection("routines")
+        await routinesRef.doc(this.props.routineID).update({status: "confirmed"});
+        window.location.reload();
     }
 
-    noButton() {
+    async noButton() {
         //update routine status to open
-        console.log(this.props.routineID)
+        const routinesRef = await db.collection("routines")
+        await routinesRef.doc(this.props.routineID).update({status: "open", locatorID: ""});
 
         //update locator activate routine to null
-        console.log(this.props.locatorID)
+        const usersRef = await db.collection("users")
+        await usersRef.doc(this.props.locatorID).update({routine_active: ""});
+        window.location.reload();
     }
 
     render() {
