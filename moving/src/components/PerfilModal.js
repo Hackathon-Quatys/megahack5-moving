@@ -1,5 +1,6 @@
 import React from 'react';
 import YesNoButton from './YesNoButton'
+import ContactConfirmButton from './ContactConfirmButton'
 
 class PerfilModal extends React.Component{
 
@@ -12,6 +13,8 @@ class PerfilModal extends React.Component{
             case "YesNoButton":
                 return <YesNoButton routineID={this.props.routineID} locatorID={this.props.locatorID}/>
                 break;
+            case "ContactConfirmButton":
+                return <ContactConfirmButton routineID={this.props.routineID}/>
             default:
                 break;
         }
