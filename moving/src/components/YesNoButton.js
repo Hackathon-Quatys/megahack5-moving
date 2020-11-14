@@ -25,11 +25,11 @@ class YesNoButton extends React.Component{
       return (
         <div className="buttons">
             <div className="yes" onClick={this.yesButton}>
-                <b>Yes</b>
+                <b>Sim</b>
             </div>
 
             <div className="no" onClick={this.noButton}>
-                <b>No</b>
+                <b>Não</b>
             </div>
 
         </div>

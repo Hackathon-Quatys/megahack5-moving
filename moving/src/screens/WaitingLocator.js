@@ -1,5 +1,6 @@
 import React from 'react';
 import PerfilModal from '../components/PerfilModal'
+import db from '../FirestoreConnection'
 
 class FirstScreen extends React.Component{
 
@@ -12,8 +13,12 @@ class FirstScreen extends React.Component{
     this.changeProposal = this.changeProposal.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     //get value from DB
+    var routinesRef = await db.collection("routines");
+    var query = await routinesRef.doc("tCT1C97NWxa9MaDUYSmb").get();
+    const routine = query.data()
+    console.log(routine)
     this.setState({
       status: "open"
     })
@@ -22,13 +27,13 @@ class FirstScreen extends React.Component{
   changeProposal() {
     var proposal = "pending"
     if (this.state.status === "open"){
-      var proposal = "pending"
+      proposal = "pending"
       this.setState({statusMessage: "Aguardando Resposta da Proposta"})
     } else if (this.state.status === "pending") {
-      var proposal = "confirmed"
+      proposal = "confirmed"
       this.setState({statusMessage: "Locação Agendada"})
     } else {
-      var proposal = "open"
+      proposal = "open"
       this.setState({statusMessage: "Aguardando Locadores"})
     }
     this.setState({
