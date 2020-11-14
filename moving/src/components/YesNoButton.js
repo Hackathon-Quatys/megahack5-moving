@@ -24,7 +24,6 @@ class YesNoButton extends React.Component{
     render() {
       return (
         <div className="buttons">
-            <h1>{this.props.routineID}</h1>
             <div className="yes" onClick={this.yesButton}>
                 <b>Yes</b>
             </div>

@@ -6,7 +6,8 @@ class FirstScreen extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      pending: false
+      status: "closed",
+      statusMessage: "Aguardando Locadores"
     }
     this.changeProposal = this.changeProposal.bind(this);
   }
@@ -14,21 +15,32 @@ class FirstScreen extends React.Component{
   componentDidMount() {
     //get value from DB
     this.setState({
-      pending: false
+      status: "closed"
     })
   }
 
   changeProposal() {
-    const proposal = this.state.pending ? false : true
+    const proposal = this.state.status === "closed" ? "pending" : "closed"
     this.setState({
-      pending: proposal
+      status: proposal
     })
-    console.log(this.state.pending)
+    this.state.status === "closed" ? this.setState({statusMessage: "Aguardando Resposta da Proposta"}) : this.setState({statusMessage: "Aguardando Locadores"})
+    console.log(this.state.status)
   }
 
   renderModal() {
-    if (this.state.pending) {
-      return <PerfilModal 
+    switch (this.state.status) {
+
+      case "closed":
+        return (
+          <div>
+            <h2> Ainda não há propostas para o seu veículo </h2>
+          </div>
+        )
+      
+      case "pending":
+        return (
+          <PerfilModal 
           title="Proposta"
           imageURL="https://www.personal.tur.br/3fronteiras/wp-content/uploads/2012/01/Quaty.jpg"
           name="Alexandre Okita"
@@ -37,9 +49,11 @@ class FirstScreen extends React.Component{
           buttonType="YesNoButton"
           routineID="qualquer coisa"
           locatorID="qualquer coisa tbm"
-        />
+          />
+        )
+      default:
+        break;
     }
-    return 
   }
 
   render() {
@@ -48,7 +62,7 @@ class FirstScreen extends React.Component{
         <button onClick={this.changeProposal}>Change Proposal</button>
         {this.renderModal()}
         <div className="text">
-          <h1>Aguardando Locadores</h1>
+          <h1>{this.state.statusMessage}</h1>
         </div>
       </div>
     )
