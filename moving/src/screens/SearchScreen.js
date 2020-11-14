@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import Geocode from "react-geocode";
 
 class SearchScreen extends React.Component {
 
@@ -14,6 +15,7 @@ class SearchScreen extends React.Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.getGeocodeByAddress = this.getGeocodeByAddress.bind(this);
     }
 
     handleInputChange(event) {
@@ -26,6 +28,20 @@ class SearchScreen extends React.Component {
         console.log(this.state.locationInfo)
 
     }
+
+    async getGeocodeByAddress() {
+        const address = this.state.locationInfo
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ location: address,  "options": {"thumbMaps": false} })
+        };
+        const response = await  fetch('http://open.mapquestapi.com/geocoding/v1/address?key=RQetvezG4WGwfcFlc6usLLQplCp5IHk8', requestOptions)
+        const result = await response.json()
+        console.log(result.results[0].locations[0].displayLatLng)
+    }
+
 
     render() {
         return(
@@ -66,6 +82,9 @@ class SearchScreen extends React.Component {
                         </div>
 
                     </form>
+                    <button onClick={()=>this.getGeocodeByAddress()}>
+                        Oi
+                    </button>
                 </div>
 
             </div>
