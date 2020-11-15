@@ -1,5 +1,6 @@
 import React from 'react';
 import db from '../FirestoreConnection'
+import '../style/waiting.css'
 
 
 class YesNoButton extends React.Component{
@@ -30,13 +31,13 @@ class YesNoButton extends React.Component{
 
     render() {
       return (
-        <div className="buttons">
+        <div className="buttonsModal">
             <div className="yes" onClick={this.yesButton}>
-                <b>Sim</b>
+                <h5 className="yes-text">Sim</h5>
             </div>
 
             <div className="no" onClick={this.noButton}>
-                <b>Não</b>
+                <h5 className="yes-text">Não</h5>
             </div>
 
         </div>
