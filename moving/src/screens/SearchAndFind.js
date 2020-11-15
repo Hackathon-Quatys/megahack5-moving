@@ -41,6 +41,9 @@ renderSearchFind() {
   render() {
     return (
       <div className="first-screen">
+        <div className="search-title">
+          <h3 className="search-title-text">Busca por carro</h3>
+        </div>
         <div className="SearchOrFind">
           {this.renderSearchFind()}
         </div>

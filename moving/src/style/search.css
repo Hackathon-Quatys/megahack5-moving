@@ -49,19 +49,19 @@ input[type=date] {
 }
 
 .form-button-div {
-  position:absolute;
-  background-color: chartreuse;
   bottom:0;
-  height: 7vh;
+  height: 10vh;
   width: 80vw;
 }
 
 .send-button {
+  position: absolute;
   width: 80vw;
   height: 7vh;
   background-color: #5C77D8;
   font-size: 300%;
   color: white;
+  bottom: 0;
 }
 
 .input-title {
@@ -69,4 +69,19 @@ input[type=date] {
   font-size: 300%;
   text-align: center;
   padding-top: 1vh;
+}
+
+.search-title {
+  position: absolute;
+  height: 4vh;
+  width: 80vw;
+  background-color: black;
+  top: 11vh;
+  left: 10vw;
+}
+
+.search-title-text {
+  color: white;
+  font-size: 300%;
+  text-align: center;
 }
