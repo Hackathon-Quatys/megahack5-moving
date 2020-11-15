@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import Geocode from "react-geocode";
 
 class SearchScreen extends React.Component {
 
@@ -11,11 +10,15 @@ class SearchScreen extends React.Component {
             startTimeInfo: '',
             endTimeInfo: '',
             locationInfo: '',
-            descriptionIndo: ''
+            descriptionInfo: '',
+            geocode: {},
+            teste: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.getGeocodeByAddress = this.getGeocodeByAddress.bind(this);
+        this.updatingLocationInfo = this.updatingLocationInfo.bind(this);
+        this.testButton = this.testButton.bind(this);
     }
 
     handleInputChange(event) {
@@ -30,7 +33,11 @@ class SearchScreen extends React.Component {
     }
 
     async getGeocodeByAddress() {
+        console.log("getGeocode");
+
         const address = this.state.locationInfo
+
+        console.log("address", address);
 
         const requestOptions = {
             method: 'POST',
@@ -39,8 +46,23 @@ class SearchScreen extends React.Component {
         };
         const response = await  fetch('http://open.mapquestapi.com/geocoding/v1/address?key=RQetvezG4WGwfcFlc6usLLQplCp5IHk8', requestOptions)
         const result = await response.json()
-        console.log(result.results[0].locations[0].displayLatLng)
+        return(result.results[0].locations[0].displayLatLng)
     }
+
+    async updatingLocationInfo() {
+        console.log("my state", this.state)
+        console.log("update location info");
+        const geocode = await this.getGeocodeByAddress()
+        console.log(geocode)
+        this.setState({geocode: geocode})
+        console.log(this.state.geocode)
+    }
+
+    testButton() {
+        const newDay = this.state.teste + 'a'
+        this.setState({teste: newDay})
+    }
+
 
 
     render() {
@@ -80,20 +102,17 @@ class SearchScreen extends React.Component {
                             <h3>propósito</h3>
                             <input type="text" name="descriptionInfo" className="description-info" placeholder="Descrição" value={this.state.descriptionInfo} onChange={this.handleInputChange}/>
                         </div>
-
                     </form>
-                    <button onClick={()=>this.getGeocodeByAddress()}>
-                        Oi
-                    </button>
+                    <Link to="/results" className="searchLink">
+                        <div className="searchDivButton" onClick={this.updatingLocationInfo}>
+                            <h3>Pesquisar</h3>
+                        </div>
+                    </Link>
                 </div>
 
             </div>
         )
     }
-
-
-
-
 }
 
 export default SearchScreen
