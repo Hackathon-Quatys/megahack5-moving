@@ -5,16 +5,18 @@ import '../style/homepage.css'
 
 class FirstScreen extends React.Component{
 
-constructor(props) {
-  super(props)
-  this.state = {
-    user: "1WcgeoPH8MewHfiWTig2"
+  constructor(props) {
+    super(props);
+    this.state = {userID: ""}
   }
-}
 
-chooseFlow() {
+  componentDidMount() {
+    console.log('myProps', this.props.location.state)
+    if(this.props.location.state === undefined) this.props.history.push('/login')
+    else this.setState({userID: this.props.location.state[0]})
 
-}
+    console.log('first screen', this.state.userID)
+  }
 
   render() {
     return (
@@ -24,7 +26,7 @@ chooseFlow() {
         </div>
         <div className="buttons">
 
-          <Link to={{pathname: "/locator", state: [{user: this.state.user}]}}  className="rent-car"><p>Quero Alugar um Carro</p></Link>
+          <Link to={{pathname: "/locator", state: [{user: this.state.userID}]}}  className="rent-car"><p>Quero Alugar um Carro</p></Link>
           <Link to="/waitingLocator" className="have-car"><p>Tenho um Carro Disponível</p></Link>
         </div>
       </div>

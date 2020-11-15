@@ -15,9 +15,10 @@ constructor(props) {
 
 async componentDidMount() {
   //get value from DB
-  var userID = this.props.location.state[0].user;
+  var userID = this.props.location.state[0].user.user;
   console.log(userID)
-  var user = await (await db.collection("users").doc("1WcgeoPH8MewHfiWTig2").get()).data();
+  var user = await (await db.collection("users").doc(userID).get()).data();
+  console.log('user', user)
 
   await this.setState({
     user: user,

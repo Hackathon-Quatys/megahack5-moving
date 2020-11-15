@@ -34,16 +34,18 @@ renderSearchFind() {
         {name: 'locationInfo', className:'location-info', type:'text', placeholder:'Cidade', text:'Cidade'}
     ]
     return (
+      <div className="search">
+        <div className="search-title">
+          <h3 className="search-title-text">Busca por carro</h3>
+        </div>
         <Forms sendData={this.sendData} buttonName="Buscar" inputList={formInputs}/>
+      </div>
     )
 }
 
   render() {
     return (
       <div className="first-screen">
-        <div className="search-title">
-          <h3 className="search-title-text">Busca por carro</h3>
-        </div>
         <div className="SearchOrFind">
           {this.renderSearchFind()}
         </div>

@@ -7,12 +7,14 @@ import WaitingLocatorScreen from './screens/WaitingLocator';
 import Forms from './components/Forms';
 import OwnerRegister from './screens/OwnerRegister';
 import WaitingOwner from './screens/WaitingOwner';
+import Login from './screens/Login';
 
 function Routes() {
     return (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={FirstScreen}/>
+                <Route path="/login" exact component={Login}/>
                 <Route path="/waitingLocator" component={WaitingLocatorScreen}/>
                 <Route path="/locator" exact component={LocatorFlow}/>
                 <Route path="/forms" exact component={Forms}/>

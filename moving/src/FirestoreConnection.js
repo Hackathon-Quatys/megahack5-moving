@@ -1,5 +1,5 @@
 import firebase from "firebase";
-const firebaseConfig = require('./secrets/firebaseConfig.js')
+import firebaseConfig from './secrets/firebaseConfig.js'
 // Required for side-effects
 require("firebase/firestore");
 
