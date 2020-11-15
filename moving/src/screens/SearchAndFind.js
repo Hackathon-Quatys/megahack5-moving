@@ -26,7 +26,7 @@ renderSearchFind() {
     if (this.state.hasSearch) {
         console.log("entrei aqui")
         return (
-            <Find params={this.state.params} user={"1WcgeoPH8MewHfiWTig2"}/>
+            <Find params={this.state.params} user={this.props.user}/>
         )
     }
     const formInputs = [
