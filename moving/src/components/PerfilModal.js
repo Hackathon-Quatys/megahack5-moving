@@ -1,6 +1,7 @@
 import React from 'react';
 import YesNoButton from './YesNoButton'
 import ContactConfirmButton from './ContactConfirmButton'
+import '../style/waiting.css'
 
 class PerfilModal extends React.Component{
 
@@ -24,19 +25,19 @@ class PerfilModal extends React.Component{
       return (
         <div className="modal">
             <div className="title">
-                <h1>{this.props.title}</h1>
+                <h1 className="title-text-modal">{this.props.title}</h1>
             </div>
             <div className="perfil-image">
-                <img src={this.props.imageURL} alt="Perfil Image"/>
+                <img className="image-modal" src={this.props.imageURL} alt="Perfil Image"/>
             </div>
             <div className="name">
-                <h2>{this.props.name}</h2>
+                <h2 className="name-text-modal">{this.props.name}</h2>
             </div>
             <div className="message">
-                <p>{this.props.message}</p>
+                <p className="message-text-modal">{this.props.message}</p>
             </div>
             <div className="detail">
-                <b>{this.props.detail}</b>
+                <p className="detail-text-modal">{this.props.detail}</p>
             </div>
             <div className="action">
                 {this.getButton()}

@@ -60,3 +60,118 @@ body {
     padding-top: 5vh;
 
 }
+
+.modal {
+    width: 77.77vw;
+    height: 56.25vh;
+    background-color: white;
+    left: 11.11vw;
+    position: absolute;
+    top:12.81vh;
+}
+
+.title {
+    position: relative;
+    width: 77.77vw;
+    height: 5.43vh;
+    background-color: black;
+
+}
+
+.title-text-modal {
+    color: white;
+    text-align: center;
+    width: 77.77vw;
+    height: 5.43vh;
+    font-size: 400%;
+}
+
+.perfil-image {
+    position: relative;
+    width: 77.77vw;
+    height: 15vh;
+}
+
+.image-modal {
+    position: relative;
+    height: 13.07vh;
+    width: 23.22vw;
+    left: 27.31vw;
+    top: 1vh;
+
+    border-radius: 50%;
+}
+
+.name {
+    position: relative;
+    width: 77.77vw;
+    height: 6vh;
+
+}
+
+.name-text-modal {
+    position: relative;
+    height: 6vh;
+    width: 77.77vw;
+    font-size: 350%;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    top:1vh;
+}
+
+.message {
+    position: relative;
+    width: 77.77vw;
+}
+
+.message-text-modal {
+    width: 57.77vw;
+    left: 10vw;
+    margin: auto;
+    color: black;
+    font-size: 360%;
+    text-align: center;
+}
+
+.detail {
+    position: relative;
+    width: 77.77vw;
+    top:3vh;
+
+}
+
+.detail-text-modal {
+    width: 77.77vw;
+    margin:auto;
+    color: black;
+    font-size: 360%;
+    text-align: center;
+}
+
+.action {
+    width: 77.77vw;
+    height: 6vh;
+    position: absolute;
+    top: 50.25vh;
+}
+
+.buttons {
+    width: 77.77vw;
+    height: 6vh;
+    background-color: peru;
+}
+
+.yes {
+    width: 38.885vw;
+    height: 6vh;
+    background-color: hotpink;
+}
+
+.no {
+    width: 38.885vw;
+    height: 6vh;
+    background-color: oldlace;
+    float:right;
+}
+

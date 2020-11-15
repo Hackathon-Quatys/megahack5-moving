@@ -1,5 +1,6 @@
 import React from 'react';
 import db from '../FirestoreConnection'
+import '../style/waiting.css'
 
 
 class YesNoButton extends React.Component{
