@@ -3,30 +3,45 @@ import db from "../FirestoreConnection"
 import SearchAndFind from './SearchAndFind'
 import WaitingOwner from './WaitingOwner'
 
-class FirstScreen extends React.Component{
+class LocatorFlow extends React.Component{
 
 constructor(props) {
   super(props)
+  this.state = {
+    mounted: false,
+    user: {}
+  }
 }
 
 async componentDidMount() {
   //get value from DB
-  var userID = this.props.user;
-  var user = await db.collection("users").doc(userID).get().data();
+  var userID = this.props.location.state[0].user;
+  console.log(userID)
+  var user = await (await db.collection("users").doc("1WcgeoPH8MewHfiWTig2").get()).data();
 
-  this.setState({
-    user: user
+  await this.setState({
+    user: user,
+    userID: userID,
+    mounted: true
   })
+
+  console.log('state', this.state)
+
 
 }
 
 buildFlow() {
-  console.log("location", this.props.user)
-  if (this.state.user.routine_active === '') {
-    return <SearchAndFind user={this.props.location.user}/>
+  if (this.state.mounted) {
+    console.log(this.state)
+    if (this.state.user.routine_active === '') {
+      return <SearchAndFind user={this.state.userID}/>
+    } else {
+      return <WaitingOwner user={this.state.userID}/>
+    }
   } else {
-    return <WaitingOwner user={this.props.location.user}/>
+    return <h1>Loading</h1>
   }
+  
 }
 
   render() {
@@ -39,4 +54,4 @@ buildFlow() {
   }
 }
 
-export default FirstScreen
+export default LocatorFlow

@@ -24,7 +24,7 @@ chooseFlow() {
         </div>
         <div className="buttons">
 
-          <Link to={{pathname: "/locator", data:{user: this.state.user}}}  className="rent-car"><p>Quero Alugar um Carro</p></Link>
+          <Link to={{pathname: "/locator", state: [{user: this.state.user}]}}  className="rent-car"><p>Quero Alugar um Carro</p></Link>
           <Link to="/waitingLocator" className="have-car"><p>Tenho um Carro Disponível</p></Link>
         </div>
       </div>

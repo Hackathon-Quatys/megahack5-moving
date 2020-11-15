@@ -17,6 +17,11 @@ class YesNoButtonFind extends React.Component{
         console.log('locator', this.props.locatorID)
         const routinesRef = await db.collection("routines")
         await routinesRef.doc(this.props.routineID).update({status: "pending", locatorID: this.props.locatorID});
+
+        const usersRef = await db.collection("users")
+        await usersRef.doc(this.props.locatorID).update({routine_active: this.props.routineID});
+
+        window.location.reload();
     }
 
     async noButton() {
