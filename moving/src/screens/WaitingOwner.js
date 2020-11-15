@@ -7,38 +7,38 @@ class WaitingOwner extends React.Component{
 
     constructor(props) {
         super(props)
-        this.sate = {
+        this.state = {
             statusMessage: "Aguardando Locatário",
             status: "pending",
-            user: "UIF092750hf230",
             routineID: "",
             routine: {},
-            locator: {},
+            owner: {},
         }
     }
 
-    // async componentDidMount() {
-    //     //get value from DB
-    //     var userID = this.state.user;
-    //     var usersRef = await db.collection("users").doc(userID).get();
-    //     var routineID = await usersRef.data().routine_created;
+    async componentDidMount() {
+        //get value from DB
+        var userID = this.props.user;
+        console.log("userID", userID)
+        var usersRef = await db.collection("users").doc(userID).get();
+        var routineID = await usersRef.data().routine_active;
     
-    //     var routinesRef = await db.collection("routines").doc(routineID).get();
-    //     const routine = routinesRef.data();
+        var routinesRef = await db.collection("routines").doc(routineID).get();
+        const routine = routinesRef.data();
     
-    //     var locator = {}
-    //     if (routine.status !== "open") {
-    //       var locatorRef = await db.collection("users").doc(routine.locatorID).get()
-    //       locator = locatorRef.data()
-    //     }
+        var owner = {}
+        if (routine.status !== "open") {
+          var ownerRef = await db.collection("users").doc(routine.ownerID).get()
+          owner = ownerRef.data()
+        }
     
-    //     this.setState({
-    //       status: routine.status,
-    //       routineID: routineID,
-    //       routine: routine,
-    //       locator: locator
-    //     })
-    // }
+        this.setState({
+          status: routine.status,
+          routineID: routineID,
+          routine: routine,
+          owner: owner
+        })
+    }
 
     setStatusMessage() {
         console.log("ESTADO", this.state)
@@ -58,12 +58,10 @@ class WaitingOwner extends React.Component{
         case "pending":
           return (
             <PerfilModal 
-            title="Proposta"
-            imageURL={this.state.locator.photo}
-            name={this.state.locator.name}
-            message="Quero o carro para ganhar uma renda extra como motorista do Uber"
-            detail={this.buildDetail()}
-            buttonType="YesNoButton"
+            title="Aguardando Resposta"
+            imageURL={this.state.owner.photo}
+            name={this.state.owner.name}
+            message={`Veículo: ${this.state.routine.car} \n Horário: ${this.state.routine.start_time}h - ${this.state.routine.end_time}h \n Preço: R$${this.state.routine.price},00 \n Local: ${this.state.routine.location}`  }
             routineID={this.state.routineID}
             locatorID={this.state.routine.locatorID}
             />
@@ -72,10 +70,9 @@ class WaitingOwner extends React.Component{
         case "confirmed":
           return (
             <PerfilModal 
-            title="Viagem Agendada"
-            imageURL={this.state.locator.photo}
-            name={this.state.locator.name}
-            detail={this.buildDetail()}
+            title="Seu pedido foi aceito!"
+            imageURL={this.state.owner.photo}
+            name={this.state.owner.name}
             buttonType="ContactConfirmButton"
             routineID={this.state.routineID}
             />
@@ -88,7 +85,7 @@ class WaitingOwner extends React.Component{
     render() {
         return(
             <div className="waiting-screen">
-                <h1>BATATA</h1>
+                {this.renderModal()}
             </div>
         )
     }
