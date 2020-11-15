@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 
 class SearchScreen extends React.Component {
 
@@ -11,14 +10,10 @@ class SearchScreen extends React.Component {
             endTimeInfo: '',
             locationInfo: '',
             descriptionInfo: '',
-            geocode: {},
-            teste: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.getGeocodeByAddress = this.getGeocodeByAddress.bind(this);
-        this.updatingLocationInfo = this.updatingLocationInfo.bind(this);
-        this.testButton = this.testButton.bind(this);
+        this.getSearch = this.getSearch.bind(this);
     }
 
     handleInputChange(event) {
@@ -31,38 +26,12 @@ class SearchScreen extends React.Component {
         console.log(this.state.locationInfo)
 
     }
-
-    async getGeocodeByAddress() {
-        console.log("getGeocode");
-
-        const address = this.state.locationInfo
-
-        console.log("address", address);
-
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ location: address,  "options": {"thumbMaps": false} })
-        };
-        const response = await  fetch('http://open.mapquestapi.com/geocoding/v1/address?key=RQetvezG4WGwfcFlc6usLLQplCp5IHk8', requestOptions)
-        const result = await response.json()
-        return(result.results[0].locations[0].displayLatLng)
+    
+    getSearch() {
+        console.log("getSearch filho")
+        this.props.onGetSearch(this.state);
     }
-
-    async updatingLocationInfo() {
-        console.log("my state", this.state)
-        console.log("update location info");
-        const geocode = await this.getGeocodeByAddress()
-        console.log(geocode)
-        this.setState({geocode: geocode})
-        console.log(this.state.geocode)
-    }
-
-    testButton() {
-        const newDay = this.state.teste + 'a'
-        this.setState({teste: newDay})
-    }
-
+    
 
 
     render() {
@@ -95,7 +64,6 @@ class SearchScreen extends React.Component {
                         <div className="location-div">
                             <h3>localização</h3>
                             <input type="text"  name="locationInfo" className="location-info" placeholder="Endereço" value={this.state.locationInfo} onChange={this.handleInputChange}/>
-
                         </div>
 
                         <div className="description-div">
@@ -103,11 +71,9 @@ class SearchScreen extends React.Component {
                             <input type="text" name="descriptionInfo" className="description-info" placeholder="Descrição" value={this.state.descriptionInfo} onChange={this.handleInputChange}/>
                         </div>
                     </form>
-                    <Link to="/results" className="searchLink">
-                        <div className="searchDivButton" onClick={this.updatingLocationInfo}>
-                            <h3>Pesquisar</h3>
-                        </div>
-                    </Link>
+                        <button className="searchDivButton" onClick={this.getSearch}>
+                            Pesquisar
+                        </button>
                 </div>
 
             </div>
