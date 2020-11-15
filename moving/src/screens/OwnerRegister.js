@@ -1,5 +1,6 @@
 import React from 'react';
 import Forms from "../components/Forms"
+import "../style/ownerRegister.css";
 
 class OwnerRegister extends React.Component {
 
@@ -31,10 +32,11 @@ class OwnerRegister extends React.Component {
             return 
         }
         const formInputs = [
-            {name: 'nameOwner', className:'name-owner', type:'text', placeholder:'Arlindo Orlando', text:'Nome'},
-            {name: 'freeDayCar', className: 'free-day-car', type:'date', placeholder:'dd/mm/aaaa', text:'Dia disponível'},
-            {name: 'initFreeHour', className: 'init-free-hoour', type: 'text', placeholder:'HH:mm', text:'Hora inicial disponivel'},
-            {name: 'returnHour', className: 'return-hour', type: 'text', placeholder:'HH:mm', text: 'Horário de retorno'},
+            {name: 'scheduleDay', className: 'owner-register-day', type:'date', placeholder:'dd/mm/aaaa', text:'Dia disponível'},
+            {name: 'initHour', className: 'owner-register-init', type: 'text', placeholder:'HH:mm', text:'Hora inicial disponivel'},
+            {name: 'finalHour', className: 'owner-register-final', type: 'text', placeholder:'HH:mm', text: 'Horário de retorno'},
+            {name: 'city', className:'owner-register-city', type: 'text', placeholder: 'Cidade', text: 'Cidade'},
+            {name: 'address', className: 'owner-register-address', type: 'text', placeholder:'Rua Tal, Numero Tal', text:'Endereço' }
         ]
         return (
             <div className="owner-form-div">

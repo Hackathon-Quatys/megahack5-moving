@@ -44,9 +44,9 @@ class WaitingLocatorScreen extends React.Component{
     console.log("ESTADO", this.state)
     switch (this.state.status) {
       case "open":
-        return "Aguardando Locadores"
+        return "Aguardando Locatários"
       case "pending":
-        return "Aguardando Resposta da Proposta"
+        return "Proposta Pendente"
       case "confirmed":
         return "Locação Agendada"
       default:
