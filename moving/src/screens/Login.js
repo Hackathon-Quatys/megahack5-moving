@@ -82,9 +82,14 @@ class Login extends React.Component {
         if(this.state.loggedIn) {
             console.log('mandando', this.state.userID)
             return (
-                <div className="welcome">
-                    <h3>Bem Vindo {this.state.displayName}</h3>
-                    <Link to={{pathname: "/", state: [{user: this.state.userID}]}}><h3>Entrar no app</h3></Link>
+                <div className="first-screen">
+                    <div className="welcome-message">
+                        <h1 className="welcome-message-text">Bem-Vindo, {this.state.displayName}! =) Aqui você pode alugar um carro disponível na sua região ou cadastrar seu veículo para ser alugado por outras pessoas.</h1>
+                    </div>
+                    <div className="welcome-button">
+                        <Link to={{pathname: "/", state: [{user: this.state.userID}]}}><h3 className="welcome-button-text">Entrar no app</h3></Link>
+                    </div>
+
                 </div>
             )
         }
