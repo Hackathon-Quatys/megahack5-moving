@@ -1,5 +1,7 @@
 import React from 'react';
 import Forms from "../components/Forms"
+import Find from "../components/Find"
+
 
 class SearchAndFind extends React.Component{
 
@@ -23,12 +25,12 @@ renderSearchFind() {
     console.log(this.state)
     if (this.state.hasSearch) {
         console.log("entrei aqui")
-        return 
+        return (
+            <Find params={this.state.params}/>
+        )
     }
     const formInputs = [
         {name: 'dayInfo', className:'day-info', type:'date', placeholder:'dd/mm/aaaa', text:'Dia'},
-        {name: 'startTimeInfo', className:'start-time-info', type:'text', placeholder:'HH:mm', text:'Hora de Início'},
-        {name: 'endTimeInfo', className:'end-time-info', type:'text', placeholder:'HH:mm', text:'Hora de Fim'},
         {name: 'locationInfo', className:'location-info', type:'text', placeholder:'Cidade', text:'Cidade'}
     ]
     return (
@@ -43,7 +45,7 @@ renderSearchFind() {
           {this.renderSearchFind()}
         </div>
       </div>
-      
+
     )
   }
 }

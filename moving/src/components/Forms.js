@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/search.css'
 
 class Forms extends React.Component {
 
@@ -38,11 +39,11 @@ class Forms extends React.Component {
             </div>
         )
     }
-    
+
     sendData() {
         this.props.sendData(this.state);
     }
-    
+
     render() {
         return(
             <div className="form-builder">
