@@ -25,7 +25,7 @@ class Forms extends React.Component {
         const listInputs = this.props.inputList.map(input => {
             return(
                 <div className="input-div" key={input.name}>
-                    <h3>{input.text}</h3>
+                    <h3 className="input-title">{input.text}</h3>
                     <input type={input.type} className={input.className} name={input.name} placeholder={input.placeholder} value={this.state[input.name] || ''} onChange={this.handleInputChange}/>
                 </div>
             )
@@ -48,9 +48,11 @@ class Forms extends React.Component {
         return(
             <div className="form-builder">
                 {this.createForm()}
-                <button className="send-button" onClick={this.sendData}>
-                    {this.props.buttonName}
-                </button>
+                <div className="form-button-div">
+                    <button className="send-button" onClick={this.sendData}>
+                        {this.props.buttonName}
+                    </button>
+                </div>
             </div>
         )
     }
