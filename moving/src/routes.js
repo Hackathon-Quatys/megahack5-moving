@@ -7,6 +7,7 @@ import WaitingLocatorScreen from './screens/WaitingLocator';
 import Forms from './components/Forms';
 import OwnerRegister from './screens/OwnerRegister';
 import WaitingOwner from './screens/WaitingOwner';
+import OwnerFlow from './screens/OwnerFlow';
 import Login from './screens/Login';
 
 function Routes() {
@@ -20,6 +21,7 @@ function Routes() {
                 <Route path="/forms" exact component={Forms}/>
                 <Route path="/register" exact component={OwnerRegister}/>
                 <Route path="/waitingOwner" exact component={WaitingOwner}/>
+                <Route path="/owner" exact component={OwnerFlow}/>
             </Switch>
         </BrowserRouter>
     );

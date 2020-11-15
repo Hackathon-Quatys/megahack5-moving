@@ -27,7 +27,7 @@ class FirstScreen extends React.Component{
         <div className="buttons">
 
           <Link to={{pathname: "/locator", state: [{user: this.state.userID}]}}  className="rent-car"><p>Quero Alugar um Carro</p></Link>
-          <Link to="/waitingLocator" className="have-car"><p>Tenho um Carro Disponível</p></Link>
+          <Link to={{pathname: "/owner", state: [{user: this.state.userID}]}} className="have-car"><p>Tenho um Carro Disponível</p></Link>
         </div>
       </div>
 

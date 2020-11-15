@@ -8,8 +8,8 @@ class WaitingLocatorScreen extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      user: "Lf3DJXAFQOcnV9zKLrwz",
-      routineID: "",
+      user: this.props.user,
+      routineID: this.props.routine,
       status: "open",
       statusMessage: "Aguardando Locadores",
       routine: {},
@@ -19,11 +19,7 @@ class WaitingLocatorScreen extends React.Component{
 
   async componentDidMount() {
     //get value from DB
-    var userID = this.state.user;
-    var usersRef = await db.collection("users").doc(userID).get();
-    var routineID = await usersRef.data().routine_created;
-
-    var routinesRef = await db.collection("routines").doc(routineID).get();
+    var routinesRef = await db.collection("routines").doc(this.state.routineID).get();
     const routine = routinesRef.data();
 
     var locator = {}
@@ -34,7 +30,6 @@ class WaitingLocatorScreen extends React.Component{
 
     this.setState({
       status: routine.status,
-      routineID: routineID,
       routine: routine,
       locator: locator
     })
@@ -55,8 +50,8 @@ class WaitingLocatorScreen extends React.Component{
   }
 
   buildDetail() {
-    var date = this.state.routine.date.toDate()
-    var formatDate = date.getDate().toString() + '/' + (date.getMonth()+1).toString() + `/` + date.getFullYear().toString()
+    console.log('LOG ROTINA DATA:', this.state.routine.date)
+    var formatDate = this.state.routine.date
     return `R$${this.state.routine.price}/Km | ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | ${formatDate}`
   }
 

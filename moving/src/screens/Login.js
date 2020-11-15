@@ -15,21 +15,24 @@ class Login extends React.Component {
             photoURL: "",
             email: "",
             userID: "",
-            loggedIn: false
+            loggedIn: false,
         }
         this.oAuthLogin = this.oAuthLogin.bind(this)
     }
 
     async register() {
         const randomId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+        console.log(this.state)
         await db.collection('users').doc(randomId).set({
             name: this.state.displayName,
             photo: this.state.photoURL,
             email: this.state.email,
-            id: this.state.randomId
+            id: randomId,
+            routine_created: "",
+            routine_active: ""
         })
         console.log('registrado')
-        this.state.login()
+        this.login()
     }
 
     async login() {
