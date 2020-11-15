@@ -3,7 +3,7 @@ import PerfilModal from '../components/PerfilModal';
 import db from '../FirestoreConnection';
 import '../style/waiting.css'
 
-class FirstScreen extends React.Component{
+class WaitingLocatorScreen extends React.Component{
 
   constructor(props) {
     super(props)
@@ -112,4 +112,4 @@ class FirstScreen extends React.Component{
   }
 }
 
-export default FirstScreen
+export default WaitingLocatorScreen
