@@ -23,7 +23,7 @@ renderSearchFind() {
     console.log(this.state)
     if (this.state.hasSearch) {
         console.log("entrei aqui")
-        return 
+        return
     }
     const formInputs = [
         {name: 'dayInfo', className:'day-info', type:'date', placeholder:'dd/mm/aaaa', text:'Dia'},
@@ -43,7 +43,7 @@ renderSearchFind() {
           {this.renderSearchFind()}
         </div>
       </div>
-      
+
     )
   }
 }
