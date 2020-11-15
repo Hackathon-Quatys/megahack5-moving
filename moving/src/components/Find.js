@@ -65,6 +65,11 @@ class Find extends React.Component {
     }
 
     buildModal() {
+        if(this.state.data.length === 0){
+            return (
+                <h1>Sem carros disponíveis na sua localização</h1>
+            )
+        }
         const routine = this.state.data[this.state.position]
         console.log("modalRoutine", routine)
         return (
@@ -72,9 +77,10 @@ class Find extends React.Component {
                 title="Veículo Disponível"
                 imageURL={this.state.actualOwner.photo}
                 name={this.state.actualOwner.name}
-                buttonType="YesNoButton"
-                routineID={this.state.actualOwner.routine_active}
-                locatorID={routine.ownerID}
+                buttonType="YesNoButtonFind"
+                routineID={this.state.actualOwner.routine_created}
+                locatorID={this.props.user}
+                moveData={this.moveData}
             />
         )
     }
