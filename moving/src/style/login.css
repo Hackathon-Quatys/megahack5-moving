@@ -1,0 +1,55 @@
+body {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.login-div-button {
+    position: absolute;
+    background-color: white;
+    width: 90vw;
+    height: 22vh;
+    top: 55vh;
+    left: 5vw;
+}
+.login-header {
+    position: absolute;
+    background-color: black;
+    height: 5vh;
+    width: 90vw;
+}
+
+.login-header-text {
+    color: white;
+    font-size: 300%;
+    position: absolute;
+    left: 30vw;
+    top: 1vh;
+}
+
+.login {
+    width: 90vw;
+    height: 17vh;
+    bottom: 0;
+    position: absolute;
+}
+
+.google-logo {
+    position: absolute;
+    width: 25vw;
+    left: 7vw;
+    top: 1.5vh;
+}
+
+.login-button {
+    height: 7vh;
+    width: 40vw;
+    position: absolute;
+    background-color: #5C77D8;
+    top: 4.5vh;
+    left: 40vw;
+    border-radius: 10%;
+    border: #000000;
+    color: white;
+    font-size: 400%;
+}
