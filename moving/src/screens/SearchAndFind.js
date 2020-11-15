@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchScreen from "../components/SearchScreen"
+import Forms from "../components/Forms"
 
 class SearchAndFind extends React.Component{
 
@@ -9,11 +9,11 @@ constructor(props) {
       hasSearch: false,
       params: {}
   }
-  this.onGetSearch = this.onGetSearch.bind(this);
+  this.sendData = this.sendData.bind(this);
 }
 
-onGetSearch(params) {
-    console.log("onGetSearch pai")
+sendData(params) {
+    console.log("sendData pai")
     console.log(params)
     this.setState({params: params, hasSearch: true})
     console.log(this.state)
@@ -25,7 +25,15 @@ renderSearchFind() {
         console.log("entrei aqui")
         return 
     }
-    return <SearchScreen onGetSearch={this.onGetSearch}/>
+    const formInputs = [
+        {name: 'dayInfo', className:'day-info', type:'date', placeholder:'dd/mm/aaaa', text:'Dia'},
+        {name: 'startTimeInfo', className:'start-time-info', type:'text', placeholder:'HH:mm', text:'Hora de Início'},
+        {name: 'endTimeInfo', className:'end-time-info', type:'text', placeholder:'HH:mm', text:'Hora de Fim'},
+        {name: 'locationInfo', className:'location-info', type:'text', placeholder:'Cidade', text:'Cidade'}
+    ]
+    return (
+        <Forms sendData={this.sendData} buttonName="Buscar" inputList={formInputs}/>
+    )
 }
 
   render() {

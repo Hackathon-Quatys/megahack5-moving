@@ -52,7 +52,6 @@ class SearchScreen extends React.Component {
                         <div className="start-time-div">
                             <h3>hora de inicio</h3>
                             <input type="text" name="startTimeInfo" className="start-time-info" placeholder="HH:mm" value={this.state.startTimeInfo} onChange={this.handleInputChange}/>
-
                         </div>
 
                         <div className="end-time-div">

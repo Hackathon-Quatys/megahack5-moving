@@ -19,7 +19,7 @@ constructor(props) {
           <img src={logo} alt="Moving Logo"/>
         </div>
         <div className="buttons">
-          <Link to="/waitingLocator" className="rent-car">Quero Alugar um Carro</Link>
+          <Link to="/search" className="rent-car">Quero Alugar um Carro</Link>
           <Link to="/waitingLocator" className="have-car">Tenho um Carro Disponível</Link>
         </div>
       </div>
