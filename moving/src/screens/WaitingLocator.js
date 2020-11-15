@@ -7,39 +7,56 @@ class FirstScreen extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
+      user: "Lf3DJXAFQOcnV9zKLrwz",
+      routineID: "",
       status: "open",
-      statusMessage: "Aguardando Locadores"
+      statusMessage: "Aguardando Locadores",
+      routine: {},
+      locator: {}
     }
-    this.changeProposal = this.changeProposal.bind(this);
   }
 
   async componentDidMount() {
     //get value from DB
-    var routinesRef = await db.collection("routines");
-    var query = await routinesRef.doc("tCT1C97NWxa9MaDUYSmb").get();
-    const routine = query.data()
-    console.log(routine)
+    var userID = this.state.user;
+    var usersRef = await db.collection("users").doc(userID).get();
+    var routineID = await usersRef.data().routine_created;
+
+    var routinesRef = await db.collection("routines").doc(routineID).get();
+    const routine = routinesRef.data();
+
+    var locator = {}
+    if (routine.status !== "open") {
+      var locatorRef = await db.collection("users").doc(routine.locatorID).get()
+      locator = locatorRef.data()
+    }
+
     this.setState({
-      status: "open"
+      status: routine.status,
+      routineID: routineID,
+      routine: routine,
+      locator: locator
     })
   }
 
-  changeProposal() {
-    var proposal = "pending"
-    if (this.state.status === "open"){
-      proposal = "pending"
-      this.setState({statusMessage: "Aguardando Resposta da Proposta"})
-    } else if (this.state.status === "pending") {
-      proposal = "confirmed"
-      this.setState({statusMessage: "Locação Agendada"})
-    } else {
-      proposal = "open"
-      this.setState({statusMessage: "Aguardando Locadores"})
+  setStatusMessage() {
+    console.log("ESTADO", this.state)
+    switch (this.state.status) {
+      case "open":
+        return "Aguardando Locadores"
+      case "pending":
+        return "Aguardando Resposta da Proposta"
+      case "confirmed":
+        return "Locação Agendada"
+      default:
+        return "no status found"
     }
-    this.setState({
-      status: proposal
-    })
-    console.log(this.state.status)
+  }
+
+  buildDetail() {
+    var date = this.state.routine.date.toDate()
+    var formatDate = date.getDate().toString() + '/' + (date.getMonth()+1).toString() + `/` + date.getFullYear().toString()
+    return `R$${this.state.routine.price}/Km | ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | ${formatDate}`
   }
 
   renderModal() {
@@ -56,13 +73,13 @@ class FirstScreen extends React.Component{
         return (
           <PerfilModal 
           title="Proposta"
-          imageURL="https://www.personal.tur.br/3fronteiras/wp-content/uploads/2012/01/Quaty.jpg"
-          name="Alexandre Okita"
+          imageURL={this.state.locator.photo}
+          name={this.state.locator.name}
           message="Quero o carro para ganhar uma renda extra como motorista do Uber"
-          detail="R$ 0,15km/h - 08h - 16/11"
+          detail={this.buildDetail()}
           buttonType="YesNoButton"
-          routineID="qualquer coisa"
-          locatorID="qualquer coisa tbm"
+          routineID={this.state.routineID}
+          locatorID={this.state.routine.locatorID}
           />
         )
       
@@ -70,11 +87,11 @@ class FirstScreen extends React.Component{
         return (
           <PerfilModal 
           title="Viagem Agendada"
-          imageURL="https://www.personal.tur.br/3fronteiras/wp-content/uploads/2012/01/Quaty.jpg"
-          name="Alexandre Okita"
-          detail="R$ 0,15km/h - 08h - 16/11"
+          imageURL={this.state.locator.photo}
+          name={this.state.locator.name}
+          detail={this.buildDetail()}
           buttonType="ContactConfirmButton"
-          routineID="qualquer coisa"
+          routineID={this.state.routineID}
           />
         )
       default:
@@ -85,10 +102,9 @@ class FirstScreen extends React.Component{
   render() {
     return (
       <div className="waiting-screen">
-        <button onClick={this.changeProposal}>Change Proposal</button>
         {this.renderModal()}
         <div className="text">
-          <h1>{this.state.statusMessage}</h1>
+          <h2> {this.setStatusMessage()} </h2>
         </div>
       </div>
     )
