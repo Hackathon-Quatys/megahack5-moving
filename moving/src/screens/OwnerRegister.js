@@ -39,8 +39,8 @@ class OwnerRegister extends React.Component {
             {name: 'address', className: 'owner-register-address', type: 'text', placeholder:'Rua Tal, Numero Tal', text:'Endereço' }
         ]
         return (
-            <div className="owner-form-div">
-                <Forms sendData={this.sendData} buttonName="Buscar" inputList={formInputs}/>
+            <div>
+                <Forms sendData={this.sendData} buttonName="Cadastrar" inputList={formInputs}/>
             </div>
         )
     }
@@ -49,12 +49,10 @@ class OwnerRegister extends React.Component {
     render() {
         return(
             <div className="owner-register-container">
-                <div className="owner-form">
-                    <div className="owner-form-title">
-                        <h1 className="owner-form-title-text">Informações para disponibilização do veículo</h1>
-                    </div>
-                    {this.renderOwnerRegister()}
+                <div className="owner-form-title">
+                    <h1 className="owner-form-title-text">Informações para disponibilização do veículo</h1>
                 </div>
+                {this.renderOwnerRegister()}
 
             </div>
         )

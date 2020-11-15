@@ -31,10 +31,11 @@ body {
 
 .owner-form-title {
     position: absolute;
-    top: 0;
+    top: 10vh;
+    left:10vw;
     height: 5vh;
     width: 80vw;
-    background-color: aqua;
+    background-color: black;
 }
 
 .owner-form-title-text {
@@ -45,12 +46,5 @@ body {
     top: 1vh;
     font-size: 250%;
     font-weight: 400;
-}
-
-.owner-form-div {
-    height: 65vh;
-    width: 80vw;
-    position: absolute;
-    bottom:0;
-    background-color: brown;
+    color: white
 }
