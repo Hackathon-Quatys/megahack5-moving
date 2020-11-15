@@ -1,5 +1,6 @@
 import React from 'react';
 import YesNoButton from './YesNoButton'
+import YesNoButtonFind from './YesNoButtonFind'
 import ContactConfirmButton from './ContactConfirmButton'
 import '../style/waiting.css'
 
@@ -13,9 +14,10 @@ class PerfilModal extends React.Component{
         switch (this.props.buttonType) {
             case "YesNoButton":
                 return <YesNoButton routineID={this.props.routineID} locatorID={this.props.locatorID}/>
-                break;
             case "ContactConfirmButton":
                 return <ContactConfirmButton routineID={this.props.routineID}/>
+            case "YesNoButtonFind":
+                return <YesNoButtonFind routineID={this.props.routineID} locatorID={this.props.locatorID} moveData={this.props.moveData} />
             default:
                 break;
         }
