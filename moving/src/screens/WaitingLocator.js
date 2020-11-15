@@ -1,6 +1,7 @@
 import React from 'react';
-import PerfilModal from '../components/PerfilModal'
-import db from '../FirestoreConnection'
+import PerfilModal from '../components/PerfilModal';
+import db from '../FirestoreConnection';
+import '../style/waiting.css'
 
 class FirstScreen extends React.Component{
 
@@ -64,8 +65,8 @@ class FirstScreen extends React.Component{
 
       case "open":
         return (
-          <div>
-            <h2> Ainda não há propostas para o seu veículo </h2>
+          <div className="no-proposes">
+            <h2 className="no-proposes-text"> Ainda não há propostas para o seu veículo </h2>
           </div>
         )
       
@@ -104,7 +105,7 @@ class FirstScreen extends React.Component{
       <div className="waiting-screen">
         {this.renderModal()}
         <div className="text">
-          <h2> {this.setStatusMessage()} </h2>
+          <h2 className="status-text"> {this.setStatusMessage()} </h2>
         </div>
       </div>
     )

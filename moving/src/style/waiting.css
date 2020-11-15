@@ -1,0 +1,62 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.waiting-screen {
+    background-image: url("/src/style/images/city_owner.jpeg");
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.text {
+    width: 100vw;
+    height: 12.5vh;
+    background-color: black;
+    top: 87.5vh;
+    position: absolute;
+}
+
+.status-text {
+    height:5vh;
+    width: 100vw;
+    position: absolute;
+    color: white;
+    font-size: 500%;
+    text-align: center;
+    top: 3vh;
+}
+
+.no-proposes {
+    position: absolute;
+    width: 77.77vw;
+    height: 26.56vh;
+    background-color: #DCD3D3;
+    top: 23.44vh;
+    left:11.11vw;
+
+}
+
+.no-proposes-text {
+    font-size: 500%;
+    width:76vw;
+    left: 35vw;
+    height: 10vh;
+    text-align: center;
+    padding-top: 5vh;
+
+}
