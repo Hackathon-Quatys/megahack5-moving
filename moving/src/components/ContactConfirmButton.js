@@ -25,16 +25,12 @@ class ContactConfirmButton extends React.Component{
     render() {
       return (
         <div className="chat">
-            <div className="" onClick={this.chatButton}>
-                <b>Chat</b>
-            </div>
-
             <div className="phone" onClick={this.phoneButton}>
-                <b>Telefone</b>
+                <h5 className="confirm-text">Telefone</h5>
             </div>
             
             <div className="confirm" onClick={this.confirmButton}>
-                <b>Confirmar início de viagem</b>
+                <h5 className="confirm-text">Confirmar início de viagem</h5>
             </div>
         </div>
       )

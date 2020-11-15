@@ -38,7 +38,6 @@ body {
     color: white;
     font-size: 500%;
     text-align: center;
-    top: 3vh;
 }
 
 .no-proposes {
@@ -156,7 +155,7 @@ body {
     top: 50.25vh;
 }
 
-.buttons {
+.buttonsModal {
     width: 77.77vw;
     height: 6vh;
     background-color: peru;
@@ -165,13 +164,53 @@ body {
 .yes {
     width: 38.885vw;
     height: 6vh;
-    background-color: hotpink;
+    background-color: #3EC229;
+    float: left;
 }
 
 .no {
     width: 38.885vw;
     height: 6vh;
-    background-color: oldlace;
-    float:right;
+    background-color:#FC6969;
+    float: right;
 }
+
+.yes-text {
+    font-size: 450%;
+    text-align: center;
+    color: white
+}
+.chat {
+    position: absolute;
+    width: 77.77vw;
+    height: 14vh;
+    background-color: peru;
+    bottom: 0;
+}
+
+.phone {
+    position: absolute;
+    width: 77.77vw;
+    height: 7vh;
+    top:0;
+    background-color: lavender;
+}
+
+.confirm {
+    position: absolute;
+    width: 77.77vw;
+    height: 7vh;
+    bottom:0;
+    background-color: #5C77D8;
+}
+.confirm-text {
+    top: 2vh;
+    left: 7vw;
+    font-size: 350%;
+    text-align: center;
+    color: white;
+    position: absolute;
+}
+
+
 
