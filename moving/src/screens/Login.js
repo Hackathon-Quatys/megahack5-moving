@@ -3,6 +3,9 @@ import firebaseConfig from '../secrets/firebaseConfig'
 import firebase from "firebase";
 import db from "../FirestoreConnection"
 import { Link } from 'react-router-dom';
+import '../style/login.css';
+import logo from "../images/moving-removebg-preview.png";
+import googleLogo from "../style/images/google_logo.jpg";
 
 
 
@@ -86,8 +89,20 @@ class Login extends React.Component {
             )
         }
         return (
-            <div className="login">
-                <button onClick={this.oAuthLogin}>Entrar</button>
+            <div className="first-screen">
+                <div className="logo">
+                    <img src={logo} alt="Moving Logo"/>
+                </div>
+                <div className="login-div-button">
+                    <div className="login-header">
+                        <h1 className="login-header-text">Login com Google</h1>
+                    </div>
+                    <div className="login">
+                        <img className="google-logo" src={googleLogo} alt="logo google"/>
+                        <button className="login-button" onClick={this.oAuthLogin}>Entrar</button>
+                    </div>
+                </div>
+            
             </div>
         )
     }
