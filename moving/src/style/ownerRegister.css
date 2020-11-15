@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    background-color: indigo;
+}
+
+.owner-register-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/src/style/images/city_owner.jpeg");
+}
+
+.owner-form {
+    position: absolute;
+    height: 70vh;
+    background-color: lightcoral;
+    width: 80vw;
+    left: 10vw;
+    top: 15vh;
+}
+
+.owner-form-title {
+    position: absolute;
+    top: 0;
+    height: 5vh;
+    width: 80vw;
+    background-color: aqua;
+}
+
+.owner-form-title-text {
+    position: absolute;
+    text-align: center;
+    width: 80vw;
+    height: 3vh;
+    top: 1vh;
+    font-size: 250%;
+    font-weight: 400;
+}
+
+.owner-form-div {
+    height: 65vh;
+    width: 80vw;
+    position: absolute;
+    bottom:0;
+    background-color: brown;
+}
