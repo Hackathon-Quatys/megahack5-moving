@@ -85,3 +85,12 @@ body {
     left:2vw;
     top:1vh;
 }
+
+.no-cars {
+    position: absolute;
+    font-size: 300%;
+    font-style: bold;
+    top: 5vh;
+    left: 40vw;
+
+}

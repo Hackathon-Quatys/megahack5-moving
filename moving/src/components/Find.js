@@ -1,6 +1,7 @@
 import React from 'react';
 import PerfilModal from './PerfilModal'
 import db from '../FirestoreConnection'
+import '../style/login.css'
 
 class Find extends React.Component {
 
@@ -68,7 +69,7 @@ class Find extends React.Component {
     buildModal() {
         if(this.state.data.length === 0){
             return (
-                <h1>Sem carros disponíveis na sua localização</h1>
+                <h1 className="no-cars">Sem carros disponíveis na sua localização</h1>
             )
         }
         const routine = this.state.data[this.state.position]
