@@ -71,7 +71,6 @@ class WaitingLocatorScreen extends React.Component{
           title="Proposta"
           imageURL={this.state.locator.photo}
           name={this.state.locator.name}
-          message="Quero o carro para ganhar uma renda extra como motorista do Uber"
           detail={this.buildDetail()}
           buttonType="YesNoButton"
           routineID={this.state.routineID}
