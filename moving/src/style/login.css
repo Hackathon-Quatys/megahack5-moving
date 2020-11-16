@@ -57,7 +57,7 @@ body {
 .welcome-message {
     background-color: #DCD3D3;
     width: 60vw;
-    height: 30vh;
+    min-height: 30vh;
     position:absolute;
     left: 20vw;
     top: 17vh;

@@ -84,7 +84,7 @@ class Login extends React.Component {
             return (
                 <div className="first-screen">
                     <div className="welcome-message">
-                        <h1 className="welcome-message-text">Bem-Vindo, {this.state.displayName}! =) Aqui você pode alugar um carro disponível na sua região ou cadastrar seu veículo para ser alugado por outras pessoas.</h1>
+                        <h1 className="welcome-message-text">Bem-Vindo, {this.state.displayName}! </h1> <br/> <h1 className="welcome-message-text">Aqui você pode alugar um carro disponível na sua região ou cadastrar seu veículo para ser alugado por outras pessoas.</h1>
                     </div>
                     <div className="welcome-button">
                         <Link to={{pathname: "/", state: [{user: this.state.userID}]}}><h3 className="welcome-button-text">Entrar no app</h3></Link>
