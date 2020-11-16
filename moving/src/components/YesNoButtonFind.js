@@ -11,6 +11,9 @@ class YesNoButtonFind extends React.Component{
         super(props)
         this.yesButton = this.yesButton.bind(this);
         this.noButton = this.noButton.bind(this);
+        this.state={
+            refresh: false
+        }
     }
 
     async yesButton() {
