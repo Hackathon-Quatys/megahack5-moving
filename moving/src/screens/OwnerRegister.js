@@ -2,6 +2,8 @@ import React from 'react';
 import Forms from "../components/Forms"
 import "../style/ownerRegister.css";
 import db from "../FirestoreConnection";
+import { Redirect } from 'react-router-dom';
+
 
 class OwnerRegister extends React.Component {
 
@@ -19,7 +21,6 @@ class OwnerRegister extends React.Component {
     async sendData(params) {
         console.log("sendData pai")
         console.log(params)
-        this.setState({params: params, hasSearch: true})
         console.log(this.state)
         const randomId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
         console.log(this.props.user)
@@ -37,7 +38,7 @@ class OwnerRegister extends React.Component {
         await db.collection('users').doc(this.props.user).update({
             routine_created: randomId
         })
-        window.location.reload();
+        this.setState({params: params, hasSearch: true})
     }
 
     renderOwnerRegister() {
@@ -71,6 +72,7 @@ class OwnerRegister extends React.Component {
     render() {
         return(
             <div className="owner-register-container">
+                {this.state.hasSearch?<Redirect to={{pathname: "/", state: [{user: this.props.user}]}}/>:<div/>}
                 {this.renderOwnerRegister()}
             </div>
         )

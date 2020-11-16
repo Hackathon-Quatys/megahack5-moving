@@ -1,6 +1,7 @@
 import React from 'react';
 import db from '../FirestoreConnection'
 import '../style/waiting.css'
+import { Redirect } from 'react-router-dom';
 
 
 class YesNoButton extends React.Component{
@@ -15,7 +16,7 @@ class YesNoButton extends React.Component{
         //update routine status to confirmed
         const routinesRef = await db.collection("routines")
         await routinesRef.doc(this.props.routineID).update({status: "confirmed"});
-        window.location.reload();
+        this.setState({refresh: true})
     }
 
     async noButton() {
@@ -26,12 +27,13 @@ class YesNoButton extends React.Component{
         //update locator activate routine to null
         const usersRef = await db.collection("users")
         await usersRef.doc(this.props.locatorID).update({routine_active: ""});
-        window.location.reload();
+        this.setState({refresh: true})
     }
 
     render() {
       return (
         <div className="buttonsModal">
+            {this.state.refresh?<Redirect to={{pathname: "/", state: [{user: this.props.locatorID}]}}/>:<div/>}
             <div className="yes" onClick={this.yesButton}>
                 <h5 className="yes-text">Sim</h5>
             </div>
