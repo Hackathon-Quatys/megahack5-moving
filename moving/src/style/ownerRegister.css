@@ -48,3 +48,13 @@ body {
     font-weight: 400;
     color: white
 }
+
+.return-button  {
+    position:absolute;
+    height: 5vh;
+    width: 15vw;
+}
+
+.home-text {
+    font-size: 300%;
+}

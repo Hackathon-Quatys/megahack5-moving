@@ -2,7 +2,6 @@ body {
     width: 100vw;
     min-height: 100vh;
     padding: 0;
-    background-color: tomato;
 }
 
 .login-div-button {
@@ -58,7 +57,7 @@ body {
 .welcome-message {
     background-color: #DCD3D3;
     width: 60vw;
-    height: 30vh;
+    min-height: 30vh;
     position:absolute;
     left: 20vw;
     top: 17vh;
