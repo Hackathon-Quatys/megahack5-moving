@@ -1,7 +1,12 @@
 # megahack5-moving
 Uber challenge MegaHack 5ed
 
-## How test our app deployes
+## Some project links
+- Website(only function in mobile): https://megahack-5ed-moving.web.app/login
+- Figma prototype: https://www.figma.com/file/kYYSjxQDQB7ZNsPdZmlOrT/Locator?node-id=0%3A1
+- Business canvas: https://drive.google.com/file/d/1a3yhz2nFCMc2WlW1FJs1Q3Y2I_Ut6xQU/view?usp=sharing
+
+## How test our app deployed
 
 - Firs access this url address in your phone browser (https://megahack-5ed-moving.web.app/)
 - Login with a Google Account
