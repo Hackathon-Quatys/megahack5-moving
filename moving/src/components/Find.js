@@ -32,14 +32,15 @@ class Find extends React.Component {
             console.log('item', item.data())
             data.push(item.data())
         })
-        
-        const routine = data[0]
-        console.log(routine)
-        var ownerRef = await db.collection("users").doc(routine.ownerID).get()
-        const owner = ownerRef.data()
-        await this.setState({
-            actualOwner: owner
-        })
+        if(this.state.data.length !== 0){
+            const routine = data[0]
+            console.log(routine)
+            var ownerRef = await db.collection("users").doc(routine.ownerID).get()
+            const owner = ownerRef.data()
+            await this.setState({
+                actualOwner: owner
+            })
+        }
 
         this.setState({
             data: data
@@ -89,7 +90,6 @@ class Find extends React.Component {
         return(
             <div className="find">
                 {this.state.mounted? this.buildModal():<h1>loading</h1>}
-                <button onClick={this.moveData}>click</button>
             </div>
             
         )
