@@ -38,6 +38,18 @@ input[type=text] {
   border: 5px solid black;
 }
 
+
+input[type=number] {
+  width: 70vw;
+  position: absolute;
+  height: 5vh;
+  box-sizing: border-box;
+  font-size:350%;
+  left: 5vw;
+  bottom: 0;
+  border: 5px solid black;
+}
+
 input[type=date] {
   height: 3vh;
   width: 35vw;
