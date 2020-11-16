@@ -61,7 +61,7 @@ class WaitingOwner extends React.Component{
             title="Aguardando Resposta"
             imageURL={this.state.owner.photo}
             name={this.state.owner.name}
-            message={`Veículo: ${this.state.routine.car} | Horário: ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | Preço: R$${this.state.routine.price},00 | Local: ${this.state.routine.location}`}
+            message={`Horário: ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | Preço: R$${this.state.routine.price},00 | Local: ${this.state.routine.location}`}
             routineID={this.state.routineID}
             locatorID={this.state.routine.locatorID}
             />

@@ -33,11 +33,11 @@ class Find extends React.Component {
             console.log('item', item.data())
             data.push(item.data())
         })
-        if(this.state.data.length !== 0){
+        if(data.length !== 0){
             const routine = data[0]
             console.log(routine)
             var ownerRef = await db.collection("users").doc(routine.ownerID).get()
-            const owner = ownerRef.data()
+            const owner = await ownerRef.data()
             await this.setState({
                 actualOwner: owner
             })
@@ -77,6 +77,7 @@ class Find extends React.Component {
         return (
             <PerfilModal
                 title="Veículo Disponível"
+                message={`Horário: ${routine.start_time}h - ${routine.end_time}h | Preço: R$${routine.price},00 | Local: ${routine.location}`}
                 imageURL={this.state.actualOwner.photo}
                 name={this.state.actualOwner.name}
                 buttonType="YesNoButtonFind"
