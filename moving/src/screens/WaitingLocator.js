@@ -52,7 +52,7 @@ class WaitingLocatorScreen extends React.Component{
   buildDetail() {
     console.log('LOG ROTINA DATA:', this.state.routine.date)
     var formatDate = this.state.routine.date
-    return `R$${this.state.routine.price}/Km | ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | ${formatDate}`
+    return `R$${this.state.routine.price} | ${this.state.routine.start_time}h - ${this.state.routine.end_time}h | ${formatDate}`
   }
 
   renderModal() {
