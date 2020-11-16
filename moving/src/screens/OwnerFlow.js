@@ -2,6 +2,8 @@ import React from 'react';
 import db from "../FirestoreConnection"
 import OwnerRegister from './OwnerRegister'
 import WaitingLocator from './WaitingLocator'
+import {Link} from 'react-router-dom'
+import '../style/ownerRegister.css'
 
 class OwnerFlow extends React.Component{
 
@@ -50,6 +52,11 @@ buildFlow() {
   render() {
     return (
       <div className="locator-flow">
+        <div className="return-button">
+          <Link>
+            <h1 className="home-text">HOME</h1>
+          </Link>
+        </div>
         {this.buildFlow()}
       </div>
       
