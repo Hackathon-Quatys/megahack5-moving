@@ -51,7 +51,7 @@ buildFlow() {
     return (
       <div className="locator-flow">
         <div className="return-button">
-          <Link>
+          <Link to={{pathname: "/", state: [{user: this.state.userID}]}}>
             <h1 className="home-text">HOME</h1>
           </Link>
         </div>
